@@ -5,3 +5,26 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "black>=24.8.0",
+    "httpx>=0.27.2",
+    "pytest-mock>=3.14.0",
+    "pytest>=8.3.3",
+    "ruff>=0.7.4",
+    "hatchling>=1.27.0",
+    "mypy>=1.14.1",
+    "types-tqdm>=4.67.0.20241221",
+]
+
+[tool.mypy]
+strict = true
+disallow_untyped_defs = true
+ignore_missing_imports = false
+
+[tool.pytest.ini_options]
+# Make pytest discover all files in the tests directory. This is useful for showing
+# detailed assertion errors outside of the test file, for example when using a helper
+# function from `tests/helpers.py`.
+python_files = "tests/*.py tests/**/*.py"
